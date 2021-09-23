@@ -1,16 +1,18 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define  _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <unistd.h>
-#include <errno.h>
-#include <limits.h>
 #include <ctype.h>
+/*#include <string.h>
+#include <errno.h>
+#include <limits.h>*/
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -55,31 +57,37 @@ typedef struct instruction_s
 typedef struct global
 {
         int st_q;
-        int actual_li;
+        unsigned int actual_li;
         char *arg;
         stack_t *head;
-        FILE *descriptor_file;
+        FILE *file_descr;
         char *buffer;
         /*instruction_t **ops*/
 } Global_t;
 
-extern Global_t glob;
+extern Global_t globa;
 
 /* mandatory_opcode1.c */
 void push_function(stack_t **stack, unsigned int line_number);
-void pop_function(stack_t **stack, unsigned int line_number);
-void pint_function(stack_t **stack, unsigned int line_number);
+/*void pop_function(stack_t **stack, unsigned int line_number);
+void pint_function(stack_t **stack, unsigned int line_number);*/
 void pall_function(stack_t **stack, unsigned int line_number);
-void swap_function(stack_t **stack, unsigned int line_number);
+/*void swap_function(stack_t **stack, unsigned int line_number);*/
 
-/* advance_opcode2.c */
+/*advance_opcode2.c /
 void add_function(stack_t **stack, unsigned int line_number);
-void nop_function(stack_t **stack, unsigned int line_number);
+void nop_function(stack_t **stack, unsigned int line_number);*/
 
 /* Helper */
-void get_functions(stack_t **stack, char *tok, unsigned int line_number);
+void (*get_functions(char *tok))(stack_t **stack, unsigned int line_number);
 
-void main(int argc, char **argv);
-int get_file(char *file, stack_t **head);
+int main(int argc, char **argv);
+stack_t *add_start(stack_t **head, const int n);
+stack_t *add_end(stack_t **head, const int n);
+/*int get_file(char *file, stack_t **head);*/
+
+int _strcmp(char *s1, char *s2);
+int find_c(char *s, char c);
+char *_strtok(char *s, char *d);
 
 #endif /* MONTY_H */

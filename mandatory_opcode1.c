@@ -6,11 +6,34 @@
 */
 void push_function(stack_t **stack, unsigned int line_number)
 {
-	int n = 0, j = 0;
+	int in = 0, i = 0;
 
-	if (!glob.arg)
+	if (!globa.arg)
 	{
-		printf();
+		dprintf(2, "L%u: ", line_number);
+		dprintf(2, "usage: push integer\n");
+		exit(EXIT_FAILURE);
+	}
+	for (; globa.arg[i] != '\0'; i++)
+	{
+		if (!isdigit(globa.arg[i]))
+		{
+			dprintf(2, "L%u:", line_number);
+			dprintf(2, "usage: push integer \n");
+			
+			exit(EXIT_FAILURE);
+		}
+	}
+
+	in = atoi(globa.arg);
+
+	if (globa.st_q == 1)
+	{
+		add_start(stack, in);
+	}
+	else
+	{
+		add_end(stack, in);
 	}
 
 }
@@ -20,20 +43,20 @@ void push_function(stack_t **stack, unsigned int line_number)
  * @line_number: the line that be executed
  * Return: nothing
  */
-void pop_function(stack_t **stack, unsigned int line_number)
+/*void pop_function(stack_t **stack, unsigned int line_number)
 {
 
-}
+}*/
 /**
  * pint_function - add to the top to a stack
  * @stack: header node
  * @line_number: the line that be executed
  * Return: nothing
  */
-void pint_function(stack_t **stack, unsigned int line_number)
+/*void pint_function(stack_t **stack, unsigned int line_number)
 {
 
-}
+}*/
 /**
  * pall_function - print the element
  * @stack: header node
@@ -41,14 +64,25 @@ void pint_function(stack_t **stack, unsigned int line_number)
  */
 void pall_function(stack_t **stack, unsigned int line_number)
 {
+	stack_t *aux = NULL;
+	(void)line_number;
+
+	aux = *stack;
+
+	while (aux)
+	{
+		printf("%d\n", aux->n);
+		aux = aux->next;
+	}
+
 
 }
 /**
  * swap_function - swap the elements from a file
  * @stack: header node
  * @line_number: the line that be executed
- */
+ *
 void swap_function(stack_t **stack, unsigned int line_number)
 {
 
-}
+}*/
