@@ -7,8 +7,8 @@
  */
 void (*get_functions(char *tok))(stack_t **stack, unsigned int line_number)
 {
-	int run = 0;
 
+	int run = 0;
 	instruction_t all_ops[] = {
 		{"push", push_function},
 		{"pall", pall_function},
@@ -25,11 +25,7 @@ void (*get_functions(char *tok))(stack_t **stack, unsigned int line_number)
 		if (_strcmp(tok, all_ops[run].opcode) == 0)
 		{
 			break;
-			/*all_ops[run].f(stack, line_number);
-			return;*/
 		}	
 	}
 	return (all_ops[run].f);
-	/*printf("L%d: unknown instruction %s", line_number, tok);
-	exit(EXIT_FAILURE);*/
 }

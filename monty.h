@@ -9,10 +9,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <ctype.h>
-/*#include <string.h>
-#include <errno.h>
-#include <limits.h>*/
-
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -29,7 +25,6 @@ typedef struct stack_s
         struct stack_s *prev;
         struct stack_s *next;
 } stack_t;
-
 
 /**
  * struct instruction_s - opcode and its function
@@ -84,10 +79,11 @@ void (*get_functions(char *tok))(stack_t **stack, unsigned int line_number);
 int main(int argc, char **argv);
 stack_t *add_start(stack_t **head, const int n);
 stack_t *add_end(stack_t **head, const int n);
-/*int get_file(char *file, stack_t **head);*/
 
 int _strcmp(char *s1, char *s2);
 int find_c(char *s, char c);
 char *_strtok(char *s, char *d);
+
+FILE *process_intro(int argc, char **argv);
 
 #endif /* MONTY_H */

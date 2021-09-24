@@ -4,13 +4,13 @@
 * @head: head of the data structure
 * Return: Noting.
 */
-void push_function(stack_t **stack, unsigned int line_number)
+void push_function(stack_t **stack, unsigned int line_num)
 {
-	int in = 0, i = 0;
+	int in, i = 0;
 
 	if (!globa.arg)
 	{
-		dprintf(2, "L%u: ", line_number);
+		dprintf(2, "L%u: ", line_num);
 		dprintf(2, "usage: push integer\n");
 		exit(EXIT_FAILURE);
 	}
@@ -18,7 +18,7 @@ void push_function(stack_t **stack, unsigned int line_number)
 	{
 		if (!isdigit(globa.arg[i]))
 		{
-			dprintf(2, "L%u:", line_number);
+			dprintf(2, "L%u:", line_num);
 			dprintf(2, "usage: push integer \n");
 			
 			exit(EXIT_FAILURE);
