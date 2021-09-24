@@ -35,7 +35,6 @@ void push_function(stack_t **stack, unsigned int line_num)
 	{
 		add_end(stack, in);
 	}
-
 }
 
 /**
@@ -56,4 +55,40 @@ void pall_function(stack_t **stack, unsigned int line_number)
 		printf("%d\n", aux->n);
 		aux = aux->next;
 	}
+}
+/**
+* pint_function - prints value at top of stack
+ * @stack: double pointer to the first node
+ * @line_number: value of new node
+ * Return: nothing
+ */
+
+void pint_function(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		printf("L%u: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack)->n);
+}
+
+/**
+ * instruction_pop - removes top element of stack
+ * @stack: double pointer to the first node
+ * @line_number: value of new node
+ * Return: nothing
+ */
+void pop_function(stack_t **stack, unsigned int line_number)
+{
+	stack_t *new;
+
+	if (*stack == NULL)
+	{
+		printf("L%u: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	new = *stack;
+	(*stack) = (*stack)->next;
+	free(new);
 }

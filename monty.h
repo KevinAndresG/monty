@@ -1,7 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#define  _POSIX_C_SOURCE 200809L
+#define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -23,9 +23,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -38,8 +38,8 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
@@ -48,32 +48,31 @@ typedef struct instruction_s
 * @actual_li: Posiction actual line
 * @arg: Process the second argument of the line.
 * @head: Principal head for the liked list.
-* @desciptor_file: File descriptor.
+* @file_descr: File descriptor.
 * @buffer: Size input.
 */
 typedef struct global
 {
-        int st_q;
-        unsigned int actual_li;
-        char *arg;
-        stack_t *head;
-        FILE *file_descr;
-        char *buffer;
-        /*instruction_t **ops*/
+	int st_q;
+	unsigned int actual_li;
+	char *arg;
+	stack_t *head;
+	FILE *file_descr;
+	char *buffer;
 } Global_t;
 
 extern Global_t globa;
 
 /* mandatory_opcode1.c */
 void push_function(stack_t **stack, unsigned int line_number);
-/*void pop_function(stack_t **stack, unsigned int line_number);
-void pint_function(stack_t **stack, unsigned int line_number);*/
+void pint_function(stack_t **stack, unsigned int line_number);
 void pall_function(stack_t **stack, unsigned int line_number);
+void pop_function(stack_t **stack, unsigned int line_number);
 /*void swap_function(stack_t **stack, unsigned int line_number);*/
 
-/*advance_opcode2.c /
-void add_function(stack_t **stack, unsigned int line_number);
-void nop_function(stack_t **stack, unsigned int line_number);*/
+/*advance_opcode2.c*/
+/* void add_function(stack_t **stack, unsigned int line_number); */
+/* void nop_function(stack_t **stack, unsigned int line_number);*/
 
 /* Helper */
 void (*get_functions(char *tok))(stack_t **stack, unsigned int line_number);
