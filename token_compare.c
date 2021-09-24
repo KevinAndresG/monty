@@ -21,6 +21,12 @@ int _strcmp(char *s1, char *s2)
 	return (0);
 }
 /* Funcion para encontar un caracter en la cadena */
+/**
+ * find_c - find
+ * @s: a char
+ * @c: a char
+ * Return: an int
+ */
 int find_c(char *s, char c)
 {
 	int i = 0;
@@ -44,6 +50,12 @@ int find_c(char *s, char c)
 }
 
 /* funcion especial para tokenizar */
+/**
+ * _strtok - tokenize a string
+ * @s: a pointer
+ * @d: a pointer
+ * Return: char structure
+ */
 char *_strtok(char *s, char *d)
 {
 	static char *last;

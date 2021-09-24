@@ -80,8 +80,3 @@ stack_t *add_end(stack_t **head, const int n)
 
 	return (temp->next);
 }
-
-/**
-*liberar la liinked list
-*void free_l(stack_t *head)
-*/

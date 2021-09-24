@@ -10,6 +10,8 @@
 #include <fcntl.h>
 #include <ctype.h>
 
+#define DELIMS "\n \t\r"
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer

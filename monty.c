@@ -31,7 +31,7 @@ FILE *process_intro(int argc, char **argv)
 
 	if (argc  == 1 || argc > 2)
 	{
-		dprintf(2, "Usasge: monty\n");
+		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -39,7 +39,7 @@ FILE *process_intro(int argc, char **argv)
 
 	if (file_descr == NULL)
 	{
-		dprintf(2, "Error: cannot open %s\n", argv[1]);
+		dprintf(2, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	return (file_descr);
@@ -65,17 +65,17 @@ int main(int argc, char **argv)
 
 	while (lines_get != -1)
 	{
-		line[0] = _strtok(globa.buffer, " \t\n");
+		line[0] = _strtok(globa.buffer, DELIMS);
 		if (line[0] && line[0][0] != '#')
 		{
 			f = get_functions(line[0]);
 			if (!f)
 			{
-				dprintf(2, "L%u: ", globa.actual_li);
-				dprintf(2, "unknown instruction %s\n", line[0]);
+				dprintf(2, "L%u: unknown instruction %s\n", globa.actual_li, line[0]);
+				/* dprintf(2, "unknown instruction %s\n", line[0]); */
 				exit(EXIT_FAILURE);
 			}
-			globa.arg = _strtok(NULL, " \t\n");
+			globa.arg = _strtok(NULL, DELIMS);
 			f(&globa.head, globa.actual_li);
 		}
 		lines_get = getline(&globa.buffer, &size, file_descr);
