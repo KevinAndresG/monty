@@ -39,7 +39,7 @@ FILE *process_intro(int argc, char **argv)
 
 	if (file_descr == NULL)
 	{
-		dprintf(2, "Error: Can't open file %s\n", argv[1]);
+		printf("Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	return (file_descr);
@@ -71,7 +71,7 @@ int main(int argc, char **argv)
 			f = get_functions(line[0]);
 			if (!f)
 			{
-				dprintf(2, "L%u: unknown instruction %s\n", globa.actual_li, line[0]);
+				printf("L%u: unknown instruction %s\n", globa.actual_li, line[0]);
 				/* dprintf(2, "unknown instruction %s\n", line[0]); */
 				exit(EXIT_FAILURE);
 			}

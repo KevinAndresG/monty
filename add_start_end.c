@@ -17,7 +17,7 @@ stack_t *add_start(stack_t **head, const int n)
 	aux = malloc(sizeof(stack_t));
 	if (!aux)
 	{
-		dprintf(2, "Error: malloc failed \n");
+		printf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	aux->n = n;
@@ -55,7 +55,7 @@ stack_t *add_end(stack_t **head, const int n)
 
 	if (!aux)
 	{
-		dprintf(2, "Error: malloc() failed\n");
+		printf("Error: malloc() failed\n");
 		exit(EXIT_FAILURE);
 	}
 	aux->n = n;
