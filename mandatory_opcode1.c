@@ -65,7 +65,7 @@ void pall_function(stack_t **stack, unsigned int line_number)
 
 void pint_function(stack_t **stack, unsigned int line_number)
 {
-	if (*stack == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
 		printf("L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
@@ -83,7 +83,7 @@ void pop_function(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 
-	if (*stack == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
 		printf("L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
