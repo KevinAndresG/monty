@@ -73,6 +73,7 @@ int main(int argc, char **argv)
 			{
 				dprintf(2, "L%u: unknown instruction %s\n", globa.actual_li, line[0]);
 				/* dprintf(2, "unknown instruction %s\n", line[0]); */
+				free_all();
 				exit(EXIT_FAILURE);
 			}
 			globa.arg = _strtok(NULL, DELIMS);
@@ -81,6 +82,7 @@ int main(int argc, char **argv)
 		lines_get = getline(&globa.buffer, &size, file_descr);
 		globa.actual_li++;
 	}
-	fclose(globa.file_descr);
+	free_all();
+	/*fclose(globa.file_descr);*/
 	return (0);
 }

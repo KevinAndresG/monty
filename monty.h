@@ -87,4 +87,8 @@ char *_strtok(char *s, char *d);
 
 FILE *process_intro(int argc, char **argv);
 
+/*Free functions */
+void free_all(void);
+void free_list(stack_t *head);
+
 #endif /* MONTY_H */

@@ -18,6 +18,7 @@ stack_t *add_start(stack_t **head, const int n)
 	if (!aux)
 	{
 		dprintf(2, "Error: malloc failed \n");
+		free_all();
 		exit(EXIT_FAILURE);
 	}
 	aux->n = n;
@@ -56,6 +57,7 @@ stack_t *add_end(stack_t **head, const int n)
 	if (!aux)
 	{
 		dprintf(2, "Error: malloc() failed\n");
+		free_all();
 		exit(EXIT_FAILURE);
 	}
 	aux->n = n;
@@ -80,3 +82,4 @@ stack_t *add_end(stack_t **head, const int n)
 
 	return (temp->next);
 }
+

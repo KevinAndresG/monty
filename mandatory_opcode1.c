@@ -74,7 +74,7 @@ void pint_function(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * instruction_pop - removes top element of stack
+ * pop_function - removes top element of stack
  * @stack: double pointer to the first node
  * @line_number: value of new node
  * Return: nothing
