@@ -29,7 +29,7 @@ FILE *process_intro(int argc, char **argv)
 {
 	FILE *file_descr;
 
-	if (argc  == 1 || argc > 2)
+	if (argc == 1 || argc > 2)
 	{
 		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
@@ -39,7 +39,7 @@ FILE *process_intro(int argc, char **argv)
 
 	if (file_descr == NULL)
 	{
-		printf("Error: Can't open file %s\n", argv[1]);
+		dprintf(2, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	return (file_descr);
@@ -52,7 +52,7 @@ FILE *process_intro(int argc, char **argv)
 */
 int main(int argc, char **argv)
 {
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*f)(stack_t * *stack, unsigned int line_number);
 	FILE *file_descr;
 	size_t size = 256;
 	ssize_t lines_get = 0;
@@ -71,7 +71,7 @@ int main(int argc, char **argv)
 			f = get_functions(line[0]);
 			if (!f)
 			{
-				printf("L%u: unknown instruction %s\n", globa.actual_li, line[0]);
+				dprintf(2, "L%u: unknown instruction %s\n", globa.actual_li, line[0]);
 				/* dprintf(2, "unknown instruction %s\n", line[0]); */
 				exit(EXIT_FAILURE);
 			}
