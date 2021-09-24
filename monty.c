@@ -2,6 +2,17 @@
 
 Global_t globa;
 
+/**
+ * free_all - free all malloc'ed memory
+ *     note: this is available "atexit", starting at
+ *           getline loop
+ **/
+/* void free_all(void)
+{
+	fclose(globa.file_descr);
+	free(globa.buffer);
+} */
+
 /* Funcion para inicializar las variables globales. */
 /**
 * init_vgobal - initialice the global variables
@@ -29,9 +40,9 @@ FILE *process_intro(int argc, char **argv)
 {
 	FILE *file_descr;
 
-	if (argc == 1 || argc > 2)
+	if (argc != 2)
 	{
-		printf("USAGE: monty file\n");
+		dprintf(2, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -81,6 +92,6 @@ int main(int argc, char **argv)
 		lines_get = getline(&globa.buffer, &size, file_descr);
 		globa.actual_li++;
 	}
-
+	fclose(globa.file_descr);
 	return (0);
 }
