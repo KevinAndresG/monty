@@ -12,11 +12,13 @@ void (*get_functions(char *tok))(stack_t **stack, unsigned int line_number)
 	instruction_t all_ops[] = {
 		{"push", push_function},
 		{"pall", pall_function},
-		/*{"pint", pint_function},
-		{"pop", pop_function},
-		{"swap", swap_function},
-		{"add", add_function},
-		{"nop", nop_function},*/
+		/**
+		* {"pint", pint_function},
+		* {"pop", pop_function},
+		* {"swap", swap_function},
+		* {"add", add_function},
+		* {"nop", nop_function},
+		*/
 		{NULL, NULL}
 	};
 
@@ -25,7 +27,7 @@ void (*get_functions(char *tok))(stack_t **stack, unsigned int line_number)
 		if (_strcmp(tok, all_ops[run].opcode) == 0)
 		{
 			break;
-		}	
+		}
 	}
 	return (all_ops[run].f);
 }

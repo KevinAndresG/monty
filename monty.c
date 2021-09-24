@@ -3,7 +3,11 @@
 Global_t globa;
 
 /* Funcion para inicializar las variables globales. */
-
+/**
+* init_vgobal - initialice the global variables
+* @file_descr: file
+* Return: nothing
+*/
 void init_vgobal(FILE *file_descr)
 {
 	globa.st_q = 1;
@@ -14,10 +18,17 @@ void init_vgobal(FILE *file_descr)
 	globa.buffer = NULL;
 }
 /* FUNCION QUE VERIFICA LA ENTRADA */
+/**
+*process_intro - verify if the file exist and can
+* be open
+* @argc: count the arguments
+* @argv: the list that contain each argument
+* Return: the file struct
+*/
 FILE *process_intro(int argc, char **argv)
 {
 	FILE *file_descr;
-	
+
 	if (argc  == 1 || argc > 2)
 	{
 		dprintf(2, "Usasge: monty\n");
@@ -25,7 +36,7 @@ FILE *process_intro(int argc, char **argv)
 	}
 
 	file_descr = fopen(argv[1], "r");
-	
+
 	if (file_descr == NULL)
 	{
 		dprintf(2, "Error: cannot open %s\n", argv[1]);
@@ -33,6 +44,12 @@ FILE *process_intro(int argc, char **argv)
 	}
 	return (file_descr);
 }
+/**
+* main - main function
+* @argc: count the arguments
+* @argv: the list that contain each argument
+* Return: return 0 in succes
+*/
 int main(int argc, char **argv)
 {
 	void (*f)(stack_t **stack, unsigned int line_number);
@@ -45,7 +62,6 @@ int main(int argc, char **argv)
 	init_vgobal(file_descr);
 
 	lines_get = getline(&globa.buffer, &size, file_descr);
-	printf("%s\n", globa.buffer);
 
 	while (lines_get != -1)
 	{
@@ -65,8 +81,6 @@ int main(int argc, char **argv)
 		lines_get = getline(&globa.buffer, &size, file_descr);
 		globa.actual_li++;
 	}
-
-	/*fclose(globa.file_descr);*/
 
 	return (0);
 }

@@ -35,19 +35,20 @@ int find_c(char *s, char c)
 	}
 	if (s[i] == c)
 	{
-		return 1;
+		return (1);
 	}
 	else
 	{
-		return 0;
+		return (0);
 	}
 }
 
 /* funcion especial para tokenizar */
 char *_strtok(char *s, char *d)
 {
-	static char *last = NULL;
+	static char *last;
 	int i = 0, j = 0;
+
 	if (!s)
 	{
 		s = last;
@@ -59,7 +60,7 @@ char *_strtok(char *s, char *d)
 			last = s + i + 1;
 			*last = '\0';
 			s = s + j;
-			return s;
+			return (s);
 		}
 		else if (find_c(d, s[i]) == 0 && find_c(d, s[i + 1]) == 0)
 		{
@@ -71,7 +72,7 @@ char *_strtok(char *s, char *d)
 			*last = '\0';
 			last++;
 			s = s + j;
-			return s;
+			return (s);
 		}
 		else if (find_c(d, s[i]) == 1)
 		{
@@ -79,5 +80,5 @@ char *_strtok(char *s, char *d)
 			i++;
 		}
 	}
-	return NULL;
+	return (NULL);
 }

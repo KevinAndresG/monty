@@ -20,7 +20,6 @@ void push_function(stack_t **stack, unsigned int line_num)
 		{
 			dprintf(2, "L%u:", line_num);
 			dprintf(2, "usage: push integer \n");
-			
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -43,20 +42,14 @@ void push_function(stack_t **stack, unsigned int line_num)
  * @line_number: the line that be executed
  * Return: nothing
  */
-/*void pop_function(stack_t **stack, unsigned int line_number)
-{
-
-}*/
+/*void pop_function(stack_t **stack, unsigned int line_number)*/
 /**
  * pint_function - add to the top to a stack
  * @stack: header node
  * @line_number: the line that be executed
  * Return: nothing
  */
-/*void pint_function(stack_t **stack, unsigned int line_number)
-{
-
-}*/
+/*void pint_function(stack_t **stack, unsigned int line_number)*/
 /**
  * pall_function - print the element
  * @stack: header node
@@ -82,7 +75,4 @@ void pall_function(stack_t **stack, unsigned int line_number)
  * @stack: header node
  * @line_number: the line that be executed
  *
-void swap_function(stack_t **stack, unsigned int line_number)
-{
-
-}*/
+/*void swap_function(stack_t **stack, unsigned int line_number)*/

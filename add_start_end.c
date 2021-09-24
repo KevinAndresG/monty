@@ -1,9 +1,10 @@
 #include "monty.h"
 
 /**
-*
-*
-*
+* add_start - add node at the start
+* @head: the head node
+* @n: the node to insert
+* Return: a structure
 */
 stack_t *add_start(stack_t **head, const int n)
 {
@@ -11,7 +12,7 @@ stack_t *add_start(stack_t **head, const int n)
 
 	if (head == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 	aux = malloc(sizeof(stack_t));
 	if (!aux)
@@ -37,10 +38,10 @@ stack_t *add_start(stack_t **head, const int n)
 }
 
 /**
-*
-*
-*
-*
+* add_end - add node at end
+* @head: the head node
+* @n: the node to insert
+* Return: a structure
 */
 stack_t *add_end(stack_t **head, const int n)
 {
@@ -48,7 +49,7 @@ stack_t *add_end(stack_t **head, const int n)
 
 	if (head == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 	aux = malloc(sizeof(stack_t));
 
@@ -80,5 +81,7 @@ stack_t *add_end(stack_t **head, const int n)
 	return (temp->next);
 }
 
-/* liberar la liinked list 
-void free_l(stack_t *head)*/
+/**
+*liberar la liinked list
+*void free_l(stack_t *head)
+*/
