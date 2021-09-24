@@ -2,17 +2,6 @@
 
 Global_t globa;
 
-/**
- * free_all - free all malloc'ed memory
- *     note: this is available "atexit", starting at
- *           getline loop
- **/
-/* void free_all(void)
-{
-	fclose(globa.file_descr);
-	free(globa.buffer);
-} */
-
 /* Funcion para inicializar las variables globales. */
 /**
 * init_vgobal - initialice the global variables
@@ -63,7 +52,7 @@ FILE *process_intro(int argc, char **argv)
 */
 int main(int argc, char **argv)
 {
-	void (*f)(stack_t * *stack, unsigned int line_number);
+	void (*f)(stack_t **stack, unsigned int line_number);
 	FILE *file_descr;
 	size_t size = 256;
 	ssize_t lines_get = 0;
